@@ -33,7 +33,7 @@ dev:
 fmt:
 	@cargo fmt
 
-## fmt: Check formatting of all files
+## fmt/check: Check formatting of all files
 .PHONY: fmt/check
 fmt/check:
 	@cargo fmt --all -- --check
