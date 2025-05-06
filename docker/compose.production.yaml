@@ -1,0 +1,16 @@
+services:
+  api:
+    image: tsxo/coingecko-supply:0.1.0
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - RUST_LOG=info
+      - APP_ENVIRONMENT=production
+    restart: unless-stopped
+    labels:
+      - "io.github.tsxo.service=coingecko-supply"
+      - "io.github.tsxo.environment=production"
+      - "io.github.tsxo.version=0.1.0"

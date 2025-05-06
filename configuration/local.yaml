@@ -1,0 +1,17 @@
+application_name: "coingecko_supply_local"
+token: "0xc3d7A72CcD1eDe897d83c8d768E624Abb69C4118"
+
+server:
+  host: "0.0.0.0"
+  port: 3000
+  update_interval: 1200 # 20 minutes
+
+blockchain:
+  chain_id: 11155111
+  rpc_url: "https://ethereum-sepolia-rpc.publicnode.com"
+
+excluded_sources:
+  - name: "Sink"
+    address: "0xB1a932A665FB0A1D5d7979cd63e80a59EDCe31B4"
+
+
