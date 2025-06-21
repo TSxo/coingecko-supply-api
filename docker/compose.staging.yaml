@@ -1,6 +1,6 @@
 services:
   api:
-    image: tsxo/coingecko-supply:0.1.0
+    image: tsxo/coingecko-supply:0.2.0
     build:
       context: ../
       dockerfile: docker/Dockerfile
@@ -13,4 +13,4 @@ services:
     labels:
       - "io.github.tsxo.service=coingecko-supply"
       - "io.github.tsxo.environment=staging"
-      - "io.github.tsxo.version=0.1.0"
+      - "io.github.tsxo.version=0.2.0"

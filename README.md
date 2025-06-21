@@ -2,7 +2,7 @@
 
 [![Build & Test](https://github.com/TSxo/coingecko-supply-api/actions/workflows/ci.yaml/badge.svg)](https://github.com/TSxo/coingecko-supply-api/actions/workflows/ci.yaml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-![Static Badge](https://img.shields.io/badge/version-0.1.0-blue)
+![Static Badge](https://img.shields.io/badge/version-0.2.0-blue)
 
 A high-performance, lightweight, blockchain-agnostic API service written in Rust
 that provides token supply information compatible with [CoinGecko's requirements](https://support.coingecko.com/hc/en-us/articles/29203078866457-Total-Supply-Circulating-Supply-API-Endpoint-Requirement).

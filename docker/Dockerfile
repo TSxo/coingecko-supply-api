@@ -37,7 +37,7 @@ FROM debian:bookworm-slim
 # Add image metadata labels.
 LABEL org.opencontainers.image.title="coingecko-supply" \
       org.opencontainers.image.description="API service for CoinGecko supply data" \
-      org.opencontainers.image.version="0.1.0" \
+      org.opencontainers.image.version="0.2.0" \
       org.opencontainers.image.created="2025-05-06" \
       org.opencontainers.image.source="https://github.com/TSxo/coingecko-supply-api" \
       org.opencontainers.image.authors="TSxo <https://github.com/TSxo>" \
