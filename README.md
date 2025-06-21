@@ -165,11 +165,9 @@ The project follows Domain-Driven Design principles:
 ├── configuration       # Configuration files.
 ├── docker              # Dockerfile and Compose files.
 ├── src
-│   ├── application     # Application services and workers.
-│   ├── configuration   # Configuration management.
-│   ├── domain          # Core domain models, providers, repositories, and services.
+│   ├── application     # Application ports and services.
+│   ├── domain          # Core domain models, repositories, and services.
 │   ├── infrastructure  # External system integrations.
-│   ├── interfaces      # API endpoints and external interfaces.
 └── tests               # Integration tests.
 ```
 

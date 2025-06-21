@@ -1,11 +1,6 @@
 //! Application Layer
 //!
-//! This module contains application services and workers that coordinate domain
-//! operations.
-//!
-//! Modules:
-//! * `services`: Application-specific services that coordinate domain operations and external resources.
-//! * `workers`: Background workers that perform periodic tasks and updates.
-
-pub mod services;
-pub mod workers;
+//! The application layer orchestrates domain operations. It contains application
+//! services that implement use cases and defines ports for external dependencies.
+pub mod port;
+pub mod service;
