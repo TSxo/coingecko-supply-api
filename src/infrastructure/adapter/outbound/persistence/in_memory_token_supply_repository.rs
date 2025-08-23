@@ -1,8 +1,8 @@
 use anyhow::Result;
 use tokio::sync::RwLock;
 
+use crate::application::port::outbound::TokenSupplyRepository;
 use crate::domain::model::TokenSupply;
-use crate::domain::repository::TokenSupplyRepository;
 
 /// In-memory repository for token supply data.
 ///

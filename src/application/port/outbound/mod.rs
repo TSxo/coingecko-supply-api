@@ -6,6 +6,8 @@
 
 pub mod token_metadata_provider;
 pub mod token_supply_provider;
+pub mod token_supply_repository;
 
 pub use token_metadata_provider::TokenMetadataProvider;
 pub use token_supply_provider::TokenSupplyProvider;
+pub use token_supply_repository::TokenSupplyRepository;

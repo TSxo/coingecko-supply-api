@@ -5,4 +5,4 @@
 //! APIs, message queues, and other services.
 
 pub mod blockchain;
-pub mod persistance;
+pub mod persistence;

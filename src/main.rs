@@ -6,12 +6,12 @@ use anyhow::Result;
 use tracing::info;
 
 use coingecko_supply::application::port::outbound::TokenMetadataProvider;
-use coingecko_supply::application::service::DefaultTokenSupplyService;
+use coingecko_supply::application::use_case::TokenSupplyUseCase;
 use coingecko_supply::domain::model::TokenSupply;
 use coingecko_supply::infrastructure::adapter::inbound::http::HttpApplication;
 use coingecko_supply::infrastructure::adapter::outbound::blockchain::BlockchainTokenMetadataProvider;
 use coingecko_supply::infrastructure::adapter::outbound::blockchain::BlockchainTokenSupplyProvider;
-use coingecko_supply::infrastructure::adapter::outbound::persistance::InMemoryTokenSupplyRepository;
+use coingecko_supply::infrastructure::adapter::outbound::persistence::InMemoryTokenSupplyRepository;
 use coingecko_supply::infrastructure::configuration::Config;
 use coingecko_supply::infrastructure::telemetry::setup_tracing;
 use coingecko_supply::infrastructure::worker::TokenSupplyWorker;
@@ -33,7 +33,7 @@ async fn main() -> Result<()> {
     let token_supply = TokenSupply::default();
     let repo = InMemoryTokenSupplyRepository::new(token_supply);
 
-    let service = DefaultTokenSupplyService::new(supply_provider, repo);
+    let service = TokenSupplyUseCase::new(supply_provider, repo);
     let service = Arc::new(service);
 
     let (worker, handle) = TokenSupplyWorker::new(
