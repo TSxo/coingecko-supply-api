@@ -5,10 +5,10 @@ use alloy::primitives::address;
 use anyhow::Result;
 
 use coingecko_supply::application::port::outbound::TokenSupplyProvider;
-use coingecko_supply::application::service::DefaultTokenSupplyService;
+use coingecko_supply::application::use_case::TokenSupplyUseCase;
 use coingecko_supply::domain::model::{Source, Token, TokenSupply};
 use coingecko_supply::infrastructure::adapter::inbound::http::HttpApplication;
-use coingecko_supply::infrastructure::adapter::outbound::persistance::InMemoryTokenSupplyRepository;
+use coingecko_supply::infrastructure::adapter::outbound::persistence::InMemoryTokenSupplyRepository;
 use coingecko_supply::infrastructure::configuration::Config;
 use coingecko_supply::infrastructure::telemetry::setup_tracing;
 use coingecko_supply::infrastructure::worker::TokenSupplyWorker;
@@ -54,7 +54,7 @@ pub async fn spawn_app() -> TestApp {
 
     let repo = InMemoryTokenSupplyRepository::new(token_supply);
 
-    let service = DefaultTokenSupplyService::new(blockchain_provider, repo);
+    let service = TokenSupplyUseCase::new(blockchain_provider, repo);
     let service = Arc::new(service);
 
     let (worker, handle) = TokenSupplyWorker::new(

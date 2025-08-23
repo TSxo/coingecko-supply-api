@@ -5,4 +5,3 @@
 //! frameworks or technologies.
 
 pub mod model;
-pub mod repository;

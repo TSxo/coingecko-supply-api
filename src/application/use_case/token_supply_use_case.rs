@@ -2,19 +2,19 @@ use anyhow::Result;
 
 use crate::application::port::inbound::TokenSupplyService;
 use crate::application::port::outbound::TokenSupplyProvider;
+use crate::application::port::outbound::TokenSupplyRepository;
 use crate::domain::model::{Source, Token, TokenSupply};
-use crate::domain::repository::TokenSupplyRepository;
 
 /// Default implementation of the [`TokenSupplyService`].
 ///
 /// This service coordinates between a token supply provider and a token supply
 /// repository to manage token supply information.
-pub struct DefaultTokenSupplyService<S, R> {
+pub struct TokenSupplyUseCase<S, R> {
     provider: S,
     repository: R,
 }
 
-impl<S, R> DefaultTokenSupplyService<S, R>
+impl<S, R> TokenSupplyUseCase<S, R>
 where
     S: TokenSupplyProvider,
     R: TokenSupplyRepository,
@@ -37,7 +37,7 @@ where
     }
 }
 
-impl<S, R> TokenSupplyService for DefaultTokenSupplyService<S, R>
+impl<S, R> TokenSupplyService for TokenSupplyUseCase<S, R>
 where
     S: TokenSupplyProvider + Send + Sync,
     R: TokenSupplyRepository + Send + Sync,
@@ -152,10 +152,10 @@ mod tests {
         repo_should_fail: bool,
         total_supply: &str,
         circulating_supply: &str,
-    ) -> DefaultTokenSupplyService<MockProvider, MockRepository> {
+    ) -> TokenSupplyUseCase<MockProvider, MockRepository> {
         let provider = MockProvider::new(provider_should_fail, total_supply, circulating_supply);
         let repo = MockRepository::new(repo_should_fail);
-        let service = DefaultTokenSupplyService::new(provider, repo);
+        let service = TokenSupplyUseCase::new(provider, repo);
 
         service
     }
