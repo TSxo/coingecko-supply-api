@@ -1,5 +1,6 @@
 # ------------------------------------------------------------------------------
 # Builder Stage.
+
 FROM rust:1.86-slim AS builder
 
 # Install build dependencies.
@@ -32,13 +33,14 @@ RUN cargo build --release
 
 # ------------------------------------------------------------------------------
 # Final Stage
+
 FROM debian:bookworm-slim
 
 # Add image metadata labels.
 LABEL org.opencontainers.image.title="coingecko-supply" \
       org.opencontainers.image.description="API service for CoinGecko supply data" \
-      org.opencontainers.image.version="0.2.0" \
-      org.opencontainers.image.created="2025-05-06" \
+      org.opencontainers.image.version="0.3.1" \
+      org.opencontainers.image.created="2025-08-30" \
       org.opencontainers.image.source="https://github.com/TSxo/coingecko-supply-api" \
       org.opencontainers.image.authors="TSxo <https://github.com/TSxo>" \
       org.opencontainers.image.licenses="MIT"
