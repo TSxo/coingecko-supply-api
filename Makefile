@@ -8,7 +8,7 @@
 # Variables
 
 BASE_IMAGE_NAME := tsxo/coingecko-supply
-VERSION         := 0.2.0
+VERSION         := 0.3.1
 IMAGE   		:= $(BASE_IMAGE_NAME):$(VERSION)
 
 # ------------------------------------------------------------------------------
